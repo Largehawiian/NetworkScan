@@ -31,19 +31,6 @@ Invoke-PortScan -Subnet "192.168.1." -FirstHost 1 - LastHost 254 -Port 22
 
 ```
 
-### Invoke-PingSweep
-
-```powershell
-# Ping a range of IP Addresses using the function name
-Invoke-PingSweep -StartIP '1.1.1.1' -EndIP '1.1.1.5'
-
-# Ping a range of IP Addresses using the psweep alias
-psweep -StartIP '1.1.1.1' -EndIP '1.1.1.5'
-
-# Ping a range of IP Addresses using the psweep alias and subnet calculations
-psweep -IPAddress '1.1.1.1' -SubnetMask '255.255.255.252'
-```
-
 ## Author
 
 [Jeremy Jackson]
