@@ -46,7 +46,7 @@ psweep -IPAddress '1.1.1.1' -SubnetMask '255.255.255.252'
 
 ## Author
 
-[Andrew Pearce](https://twitter.com/austoonz) - [https://andrewpearce.io](https://andrewpearce.io)
+[Jeremy Jackson]
 
 ## Contributors
 
