@@ -24,13 +24,13 @@ GUID = 'f86c3379-f6ae-4339-bd9f-09a05be50143'
 Author = 'Jeremy Jackson'
 
 # Company or vendor of this module
-CompanyName = 'Unknown'
+CompanyName = 'Jeremy Jackson Personal Projects'
 
 # Copyright statement for this module
 Copyright = '(c) Jeremy Jackson. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'Collection of Network Scanning Tools'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
