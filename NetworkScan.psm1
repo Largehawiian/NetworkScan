@@ -1,6 +1,6 @@
 # Importing public and private functions
 $PSScript = $PSScriptRoot
-$PublicFunc = @(Get-ChildItem -Path $PSScript\*.ps1 -ErrorAction SilentlyContinue)
+$PublicFunc = @(Get-ChildItem -Recurse -Path $PSScript\*.ps1 -ErrorAction SilentlyContinue)
 # Dotsourcing files
 ForEach ($import in $PublicFunc) {
     Try {
