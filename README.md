@@ -20,6 +20,12 @@ Install-Module -Name 'NetworkScan' -Scope 'CurrentUser'
 ### Invoke-SubnetScan
 
 ```powershell
+# Output a report of hosts pinged in the specified subnet
+Get-SubnetReport -Subnet "192.168.1." -FirstHost 1 -LastHost 254
+
+#Output a report of hosts alive in the specified subnet of which were tested on the specified TCP port
+Get-SubnetReport -Subnet "192.168.1." -FirstHost 1 -LastHost 254 -Port 22
+
 # Ping all hosts in 192.168.1.0/24
 Invoke-SubnetScan -Subnet "192.168.1." -FirstHost 1 -LastHost 254
 
@@ -27,7 +33,7 @@ Invoke-SubnetScan -Subnet "192.168.1." -FirstHost 1 -LastHost 254
 Invoke-SubnetScan -Subnet "192.168.1." -FirstHost 1 -LastHost 254 -ResolveDNS
 
 # Scan Subnet for port 22 availability 
-Invoke-PortScan -Subnet "192.168.1." -FirstHost 1 - LastHost 254 -Port 22 
+Invoke-SubnetScan -Subnet "192.168.1." -FirstHost 1 -LastHost 254 | Invoke-PortScan -Port 22 
 
 ```
 

@@ -1,23 +1,20 @@
 function Invoke-PortScan {
     param (
-        [Parameter(Mandatory=$True)]
-        [ValidateNotNullOrEmpty()]
-        [String]$Port,
-        [Parameter(Mandatory=$True)]
-        [ValidateNotNullOrEmpty()]
-        [String]$Subnet,
-        [Parameter(Mandatory=$True)]
-        [ValidateNotNullOrEmpty()]
-        [String]$FirstHost,
-        [Parameter(Mandatory=$True)]
-        [ValidateNotNullOrEmpty()]
-        [String]$LastHost
+        [Parameter(ParameterSetName = "Pipeline",
+            ValueFromPipelineByPropertyName,
+            Mandatory = $True)]
+        [String]$ComputerName,
+        [Parameter(Mandatory = $True)]
+        [String]$Port
     )
-    $Script:Hosts = Foreach ($i in $FirstHost..$LastHost){
-        $Subnet.trim(".") + "." + $i
+    begin {
+
     }
+    process {
+        Test-NetConnection -RemoteAddress $ComputerName -Port $Port | ForEach-Object {
+            [portscan]::new($_.RemoteAddress, $_.RemotePort, $_.InterfaceAlias, $_.SourceAddress, $_.TcpTestCuceeded)
+        }
     
-    foreach ($i in $Script:Hosts){
-        Test-NetConnection -RemoteAddress $i -Port $Port
     }
+
 }
