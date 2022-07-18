@@ -15,10 +15,10 @@ function Invoke-SubnetScan {
         $Subnet.trim(".") + "." + $i
     }
     if (!$ResolveDNS){
-        Invoke-FastPing -HostName $Script:Hosts | Where-Object {$Null -ne $_.RoundtripAverage} 
+        Invoke-FastPing -HostName $Script:Hosts | Where-Object {$Null -ne $_.RoundtripAverage}
     }
     if ($ResolveDNS){
-        Write-Host "DNS Server To Use?"
+        Write-Output -Message "DNS Server To Use?" -
         $DNSServer = Read-Host
         $Scan = Invoke-FastPing -HostName $Script:Hosts | Where-Object {$Null -ne $_.RoundtripAverage}
         $Results = foreach ($i in $Scan){
@@ -31,5 +31,5 @@ function Invoke-SubnetScan {
         }
         return $Results
     }
-    
+
 }

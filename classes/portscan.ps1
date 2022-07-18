@@ -31,5 +31,5 @@ class portscan {
         @{L = "Online"; E={$_.Online}}
         return $Report
     }
-    
+
 }
