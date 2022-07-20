@@ -12,7 +12,7 @@ function Invoke-PortScan {
     }
     process {
         Test-NetConnection -RemoteAddress $ComputerName -Port $Port | ForEach-Object {
-            [portscan]::new($_.RemoteAddress, $_.RemotePort, $_.InterfaceAlias, $_.SourceAddress, $_.TcpTestCuceeded)
+            [portscan]::new($_.RemoteAddress, $_.RemotePort, $_.InterfaceAlias, $_.SourceAddress, $_.TcpTestSucceeded)
         }
 
     }
